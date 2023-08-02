@@ -1,24 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <title>smith hamal</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h2 class="logo">logo</h2>
-        <nav class="navigation">
-            <a href="#">HOME</a>
-            <a href="#">ABOUT</a>
-            <a href="#">SERVICES</a>
-            <a href="#">CONTACT</a>
-            <button class="btnlogin-popup">Login</button>
-            <button class="btnlogin-popup">Sign up</button>
+  </head>
 
-        </nav>
+  <body>
+    <!-- header started -->
+    <header id="header" class="vh-100 flex">
+      <div class="container">
+        <div class="header-content">
+          <h1>I'm a <br /><span> Smith Hamal </span></h1>
+          <h3>IT  DEVELOPER | FLUTTER DEVELOPER </h3>
+          <ul class="social-media">
+            <li>
+              <a href="https://www.facebook.com/smith.hamal.7/" class="flex">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.twitter.com/" class="flex">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/direct/t/117868399596244/" class="flex">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pinterest.com/" class="flex">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
-    
-</body>
+
+    <!-- about started -->
+
+    <section id="about" class="about py-7">
+      <div class="container">
+        <div class="about-content grid">
+          <div class="about-left">
+            <img src="images/about-pic.jpg" alt="" />
+          </div>
+          <div class="about-right">
+            <div class="title">
+              <h2>About Me</h2>
+            </div>
+            <p class="lead">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
+              in facilis est error cum repudiandae exercitationem aperiam
+              expedita, nulla nobis blanditiis illo. Sed doloribus aut rerum
+              magni atque, facere libero.
+            </p>
+            <p class="lead">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+              cumque itaque tenetur voluptatibus autem esse officia illum
+              praesentium nihil dolore.
+            </p>
+            <a href="#work" class="btn-down">
+              <i class="fas fa-chevron-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about end -->
+
+    <section id="work" class="vh-100 py-7 flex">
+      <div class="container">
+        <div class="work-content">
+          <div class="title">
+            <h2>What i am doing</h2>
+          </div>
+          <ul class="work-top grid">
+            <li class="lead">
+              <i class="fas fa-dot-circle"></i> We work according to the
+              guidelines of the American Institute of Digital Photography with
+              regard to color management and file handling.
+            </li>
+            <li class="lead">
+              <i class="fas fa-dot-circle"></i> Your files will be stored
+              multiples times on two locations
+            </li>
+            <li class="lead">
+              <i class="fas fa-dot-circle"></i> We work with the terms and
+              conditions of the Dupho, registered at the court in Ohio with
+              number 08/2018.
+            </li>
+            <li class="lead">
+              <i class="fas fa-dot-circle"></i> We always have back-up equipment
+              at hand, also on location.
+            </li>
+          </ul>
+          <div class="grid2 work-bottom">
+            <div>
+              <span class="icon"
+                ><img src="images/wildlife-icon.png" alt=""
+              /></span>
+              <h3>wildlife</h3>
+            </div>
+            <div>
+              <!-- <span class="icon"
+                ><img src="images/portrait-icon.png" alt=""
+              /></span> -->
+              <span class="icon"
+                ><img src="images/about-pic.jpg" alt=""
+              /></span>
+              <h3>Portrait</h3>
+            </div>
+            <div>
+              <span class="icon"
+                ><img src="images/landscape-icon.png" alt=""
+              /></span>
+              <h3>Landscape</h3>
+            </div>
+            <div>
+              <span class="icon"
+                ><img src="images/family-icon.png" alt=""
+              /></span>
+              <h3>Family</h3>
+            </div>
+          </div>
+          <a href="#portfolio" class="btn-down btn-down-white">
+            <i class="fas fa-chevron-down"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- portfolio section started -->
+    <section id="portfolio" class="vh-100 py-7">
+      <div class="container">
+        <div class="portfolio-content">
+          <div class="title">
+            <h2>My Last Works</h2>
+            <a href="" id="contact" class="btn-down">
+              <i class="fas fa-chevron-down"></i>
+            </a>
+          </div>
+          <div class="portfolio-grid grid">
+            <div><img src="images/port-1.jpg" alt="" /></div>
+            <div><img src="images/port-2.jpg" alt="" /></div>
+            <div><img src="images/port-3.jpg" alt="" /></div>
+            <div><img src="images/port-4.jpg" alt="" /></div>
+            <div><img src="images/port-5.jpg" alt="" /></div>
+            <div><img src="images/port-6.jpg" alt="" /></div>
+            <div><img src="images/port-7.jpg" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-7">
+      <div class="container">
+        <div class="flex contact-content">
+          <div class="contact-left">
+            <div class="title">
+              <h2>Contact With Me</h2>
+            </div>
+            <p class="lead"><i class="fas fa-phone-alt"></i>+977-9863846822</p>
+            <p class="lead">
+              <i class="fas fa-envelope"></i>smithhamal7@icloud.com
+            </p>
+            <form action="">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Name "
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Email "
+              />
+              <input type="submit" class="btn-submit btn" value="Submit" />
+            </form>
+          </div>
+          <div class="contact-right">
+            <img src="images/contact-pic.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="insta" class="py-7">
+      <div class="container">
+        <div class="insta-content">
+          <div class="title">
+            <h2>Instagram</h2>
+            <a href="#footer" class="btn-down btn-down-white">
+              <i class="fas fa-chevron-down"></i>
+            </a>
+          </div>
+          <div class="insta-grid grid">
+            <div><img src="images/port-1.jpg" alt="" /></div>
+            <div><img src="images/port-2.jpg" alt="" /></div>
+            <div><img src="images/port-3.jpg" alt="" /></div>
+            <div><img src="images/port-4.jpg" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="py-7">
+      <div class="conatiner">
+        <div class="footer-content">
+          <div>
+            <h3>Smith Hamal</h3>
+            <div class="footerimg">
+              <img src="images/about-pic.jpg" alt="" />
+            </div>
+          </div>
+          <div>
+            <h3>Links</h3>
+            <ul class="flex">
+              <li><a href="#">About Me</a></li>
+              <li><a href="#">Work</a></li>
+              <li><a href="#">Protfolio</a></li>
+              <li><a href="#">Contact Me</a></li>
+              <li><a href="#">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
