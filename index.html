@@ -1,235 +1,628 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>smith hamal</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smith Hamal - Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --text-color: #d9d9d9;
+            --accent-color: #ffffff;
+            --card-bg: #1c1c1c;
+            --secondary-bg: #181818;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <body>
-    <!-- header started -->
-    <header id="header" class="vh-100 flex">
-      <div class="container">
-        <div class="header-content">
-          <h1>I'm<br /><span> Smith Hamal </span></h1>
-          <h3>IT  DEVELOPER | FLUTTER DEVELOPER </h3>
-          <ul class="social-media">
-            <li>
-              <a href="https://www.facebook.com/smith.hamal.7/" class="flex">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.twitter.com/" class="flex">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/direct/t/117868399596244/" class="flex">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.pinterest.com/" class="flex">
-                <i class="fab fa-pinterest"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- about started -->
+        body {
+            font-family: 'Helvetica Neue', 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            overflow-x: hidden;
+        }
 
-    <section id="about" class="about py-7">
-      <div class="container">
-        <div class="about-content grid">
-          <div class="about-left">
-            <img src="images/about-pic.jpg" alt="" />
-          </div>
-          <div class="about-right">
-            <div class="title">
-              <h2>About Me</h2>
+        /* Navigation */
+        .navbar {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 400;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0f0f0f 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-color);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Section Styles */
+        .about, .projects, .skills, .contact {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .about h2, .projects h2, .skills h2, .contact h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--accent-color);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .about h2::after, .projects h2::after, .skills h2::after, .contact h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section with Photo */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.2s;
+        }
+
+        .about-photo {
+            flex: 0 0 auto;
+        }
+
+        .about-photo img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            filter: grayscale(100%);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .about-photo img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.08);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            text-align: left;
+            font-weight: 300;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--secondary-bg);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: calc(0.2s * var(--i));
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .project-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.7rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .project-info p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .skill-item {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        .skill-item:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-color);
+        }
+
+        .contact form {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .contact input, .contact textarea {
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            background: #252525;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: #303030;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+        }
+
+        .contact textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .contact button {
+            padding: 1.2rem;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .contact button:hover {
+            background: #e0e0e0;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: #121212;
+            color: #b0b0b0;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text p {
+                text-align: center;
+            }
+
+            .about-photo img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                gap: 2rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about h2, .projects h2, .skills h2, .contact h2 {
+                font-size: 2.2rem;
+            }
+
+            .project-card img {
+                height: 200px;
+            }
+
+            .about-photo img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about, .projects, .skills, .contact {
+                padding: 4rem 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-photo img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .project-card img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Smith Hamal</div>
+            <div class="menu-toggle">☰</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
             </div>
-            <p class="lead">
-                Hello! 
-            Hello there! I'm Smith Hamal, a passionate Flutter developer and an IT engineering student at NCIT College. I find joy in building innovative and user-friendly mobile applications that make a positive impact on people's lives.
-            I am currently pursuing a degree in IT engineering at NCIT College. Throughout my academic journey, I have immersed myself in various programming languages and software development methodologies. This has provided me with a solid foundation to excel in the world of mobile app development.
-            </p>
-            <p class="lead">
-              My fascination with mobile app development led me to specialize in Flutter, Google's open-source UI software development kit. Over the past couple of years, I've delved deep into Flutter, mastering its widgets, state management techniques, and cross-platform capabilities. Through my projects and coursework, I've honed my skills in creating responsive and visually appealing mobile applications for both Android and iOS platforms.
-            </p>
-            <a href="#work" class="btn-down">
-              <i class="fas fa-chevron-down"></i>
-            </a>
-          </div>
         </div>
-      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I'm a passionate developer creating innovative web solutions. Explore my work and let's build something amazing together!</p>
+        </div>
     </section>
-    <!-- about end -->
 
-    <section id="work" class="vh-100 py-7 flex">
-      <div class="container">
-        <div class="work-content">
-          <div class="title">
-            <h2>What i am doing</h2>
-          </div>
-          <ul class="work-top grid">
-            <li class="lead">
-              <i class="fas fa-dot-circle"></i> Pursuing IT Engineering at NCIT College
-            </li>
-            <li class="lead">
-              <i class="fas fa-dot-circle"></i> pecializing in Flutter Development
-            </li>
-            <li class="lead">
-              <i class="fas fa-dot-circle"></i> Working on Diverse Mobile App Projects
-            </li>
-            <li class="lead">
-              <i class="fas fa-dot-circle"></i> Continuous Growth and Learning
-            </li>
-          </ul>
-          <div class="grid2 work-bottom">
-            <div>
-              <span class="icon"
-                ><img src="images/wildlife-icon.png" alt=""
-              /></span>
-              <h3>wildlife</h3>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-photo">
+                <img src="https://via.placeholder.com/200" alt="John Doe">
             </div>
-            <div>
-              <!-- <span class="icon"
-                ><img src="images/portrait-icon.png" alt=""
-              /></span> -->
-              <span class="icon"
-                ><img src="images/about-pic.jpg" alt=""
-              /></span>
-              <h3>Portrait</h3>
+            <div class="about-text">
+                <p>I'm a full-stack developer with 5+ years of experience in building responsive and scalable web applications. My passion lies in creating user-friendly interfaces and robust backend systems.</p>
             </div>
-            <div>
-              <span class="icon"
-                ><img src="images/landscape-icon.png" alt=""
-              /></span>
-              <h3>Landscape</h3>
-            </div>
-            <div>
-              <span class="icon"
-                ><img src="images/family-icon.png" alt=""
-              /></span>
-              <h3>Family</h3>
-            </div>
-          </div>
-          <a href="#portfolio" class="btn-down btn-down-white">
-            <i class="fas fa-chevron-down"></i>
-          </a>
         </div>
-      </div>
     </section>
 
-    <!-- portfolio section started -->
-    <section id="portfolio" class="vh-100 py-7">
-      <div class="container">
-        <div class="portfolio-content">
-          <div class="title">
-            <h2>My Last Works</h2>
-            <a href="" id="contact" class="btn-down">
-              <i class="fas fa-chevron-down"></i>
-            </a>
-          </div>
-          <div class="portfolio-grid grid">
-            <div><img src="images/port-1.jpg" alt="" /></div>
-            <div><img src="images/port-2.jpg" alt="" /></div>
-            <div><img src="images/port-3.jpg" alt="" /></div>
-            <div><img src="images/port-4.jpg" alt="" /></div>
-            <div><img src="images/port-5.jpg" alt="" /></div>
-            <div><img src="images/port-6.jpg" alt="" /></div>
-            <div><img src="images/port-7.jpg" alt="" /></div>
-            <div><img src="images/port-8.jpg" alt="" /></div>
-          </div>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card" style="--i: 1;">
+                <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                <div class="project-info">
+                    <h3>Project One</h3>
+                    <p>A modern e-commerce platform built with React and Node.js.</p>
+                </div>
+            </div>
+            <div class="project-card" style="--i: 2;">
+                <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                <div class="project-info">
+                    <h3>Project Two</h3>
+                    <p>A task management app with real-time collaboration features.</p>
+                </div>
+            </div>
+            <div class="project-card" style="--i: 3;">
+                <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                <div class="project-info">
+                    <h3>Project Three</h3>
+                    <p>A portfolio website with dynamic content management.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="contact" class="py-7">
-      <div class="container">
-        <div class="flex contact-content">
-          <div class="contact-left">
-            <div class="title">
-              <h2>Contact With Me</h2>
-            </div>
-            <p class="lead"><i class="fas fa-phone-alt"></i>+977-9863846822</p>
-            <p class="lead">
-              <i class="fas fa-envelope"></i>smithhamal7@icloud.com
-            </p>
-            <form action="">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Your Name "
-              />
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Your Email "
-              />
-              <input type="submit" class="btn-submit btn" value="Submit" />
-            </form>
-          </div>
-          <div class="contact-right">
-            <img src="images/contact-pic.jpg" alt="" />
-          </div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item" style="--i: 1;">HTML</div>
+            <div class="skill-item" style="--i: 2;">CSS</div>
+            <div class="skill-item" style="--i: 3;">JavaScript</div>
+            <div class="skill-item" style="--i: 4;">React</div>
+            <div class="skill-item" style="--i: 5;">Node.js</div>
+            <div class="skill-item" style="--i: 6;">Python</div>
         </div>
-      </div>
     </section>
-    <section id="insta" class="py-7">
-      <div class="container">
-        <div class="insta-content">
-          <div class="title">
-            <h2>Instagram</h2>
-            <a href="#footer" class="btn-down btn-down-white">
-              <i class="fas fa-chevron-down"></i>
-            </a>
-          </div>
-          <div class="insta-grid grid">
-            <div><img src="images/port-1.jpg" alt="" /></div>
-            <div><img src="images/port-2.jpg" alt="" /></div>
-            <div><img src="images/port-3.jpg" alt="" /></div>
-            <div><img src="images/port-4.jpg" alt="" /></div>
-          </div>
-        </div>
-      </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
-    <footer id="footer" class="py-7">
-      <div class="conatiner">
-        <div class="footer-content">
-          <div>
-            <h3>Smith Hamal</h3>
-            <div class="footerimg">
-              <img src="images/about-pic.jpg" alt="" />
-            </div>
-          </div>
-          <div>
-            <h3>Links</h3>
-            <ul class="flex">
-              <li><a href="#">About Me</a></li>
-              <li><a href="#">Work</a></li>
-              <li><a href="#">Protfolio</a></li>
-              <li><a href="#">Contact Me</a></li>
-              <li><a href="#">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 John Doe. All rights reserved.</p>
     </footer>
-  </body>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message sent! Thank you for contacting me.');
+            this.reset();
+        });
+    </script>
+</body>
 </html>
-
-
-
