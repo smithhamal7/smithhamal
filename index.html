@@ -160,13 +160,13 @@
         }
 
         /* Section Styles */
-        .about, .projects, .skills, .contact {
+        .about, .projects, .skills, .cv, .contact {
             max-width: 1400px;
             margin: 0 auto;
             padding: 6rem 2rem;
         }
 
-        .about h2, .projects h2, .skills h2, .contact h2 {
+        .about h2, .projects h2, .skills h2, .cv h2, .contact h2 {
             font-size: 3rem;
             font-weight: 700;
             text-align: center;
@@ -177,7 +177,7 @@
             letter-spacing: 0.05em;
         }
 
-        .about h2::after, .projects h2::after, .skills h2::after, .contact h2::after {
+        .about h2::after, .projects h2::after, .skills h2::after, .cv h2::after, .contact h2::after {
             content: '';
             width: 80px;
             height: 4px;
@@ -240,7 +240,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350 万, 1fr));
             gap: 2.5rem;
         }
 
@@ -319,6 +319,71 @@
             color: var(--bg-color);
             transform: translateY(-8px);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        /* CV Section */
+        .cv {
+            background: var(--bg-color);
+        }
+
+        .cv-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .cv-download {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cv-download a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .cv-download a:hover {
+            background: #e0e0e0;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .cv-section h3 {
+            font-size: 1.7rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cv-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-item h4 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .cv-item p {
+            font-size: 1rem;
+            color: #b0b0b0;
+            font-weight: 300;
         }
 
         /* Contact Section */
@@ -401,6 +466,10 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
 
+            .cv-grid {
+                grid-template-columns: 1fr;
+            }
+
             .about-content {
                 flex-direction: column;
                 text-align: center;
@@ -447,7 +516,7 @@
                 font-size: 1.1rem;
             }
 
-            .about h2, .projects h2, .skills h2, .contact h2 {
+            .about h2, .projects h2, .skills h2, .cv h2, .contact h2 {
                 font-size: 2.2rem;
             }
 
@@ -482,7 +551,7 @@
                 font-size: 1rem;
             }
 
-            .about, .projects, .skills, .contact {
+            .about, .projects, .skills, .cv, .contact {
                 padding: 4rem 1rem;
             }
 
@@ -512,6 +581,7 @@
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
+                <a href="#cv">CV</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -533,7 +603,7 @@
                 <img src="https://via.placeholder.com/200" alt="John Doe">
             </div>
             <div class="about-text">
-                <p>I'm a full-stack developer with 2+ years of experience in building responsive and scalable web applications. My passion lies in creating user-friendly interfaces and backend systems.</p>
+                <p>I'm a full-stack developer with 2+ years of experience in building responsive and scalable web applications. My passion lies in creating user-friendly interfaces and  backend systems.</p>
             </div>
         </div>
     </section>
@@ -545,8 +615,8 @@
             <div class="project-card" style="--i: 1;">
                 <img src="https://via.placeholder.com/300x200" alt="Project 1">
                 <div class="project-info">
-                    <h3>SwooshX-A shoes ecommerce site</h3>
-                    <p>A modern e-commerce platform built with Html css javascript php and mysql</p>
+                    <h3>SwooshX</h3>
+                    <p>A modern shoes e-commerce platform built with Html css Javascript Php and Mysql.</p>
                 </div>
             </div>
     </section>
@@ -560,11 +630,29 @@
             <div class="skill-item" style="--i: 3;">JavaScript</div>
             <div class="skill-item" style="--i: 4;">Php</div>
             <div class="skill-item" style="--i: 5;">mysql</div>
-            <div class="skill-item" style="--i: 6;">C</div>
-            <div class="skill-item" style="--i: 7;">C++</div>
-            <div class="skill-item" style="--i: 8;">java</div>
+            <div class="skill-item" style="--i: 6;">Java</div>
+             <div class="skill-item" style="--i: 7;">C</div>
+             <div class="skill-item" style="--i: 8;">C++</div>
         </div>
     </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv">
+        <h2>My CV</h2>
+        <div class="cv-content">
+            <div class="cv-download">
+                <a href="https://via.placeholder.com/300x200" download="John_Doe_CV.pdf">Download My CV</a>
+            </div>
+            <div class="cv-grid">
+                <div class="cv-section">
+                    <h3>Education</h3>
+                    <div class="cv-item">
+                        <h4>Bachelor Of Engineering in IT</h4>
+                        <p>University of Technology, 2021-present</p>
+                        <p>Currently Studying with honors, focusing on software engineering and web development.</p>
+                    </div>
+                </div>
+            </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -579,7 +667,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2021 Smith. All rights reserved.</p>
+        <p>© 2020 Smith Hamal. All rights reserved.</p>
     </footer>
 
     <script>
